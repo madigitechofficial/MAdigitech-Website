@@ -1,4 +1,4 @@
-# MAdigitech Website
+# MAdigitech | Digital Solutions
 
 This repository contains the source code for the official website of **MAdigitech**, a full-service digital marketing agency focused on helping businesses grow through modern digital solutions.
 
@@ -13,7 +13,7 @@ This repository exists publicly **only for deployment and hosting purposes**.
 
 ---
 
-## Important Notice
+## ⚠️Important Notice
 
 This repository is **not open for public contribution, reuse, or modification**.
 
@@ -53,3 +53,4 @@ This repository is **not monitored for support requests**.
 ---
 
 © MAdigitech. All rights reserved.
+
