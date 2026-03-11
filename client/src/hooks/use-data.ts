@@ -9,11 +9,11 @@ import { z } from "zod";
 
 export function useServices() {
   return useQuery({
-    queryKey: [api.services.list.path],
+    queryKey: ["services"],
     queryFn: async () => {
-      const res = await fetch(api.services.list.path);
+      const res = await fetch("/api/services");
       if (!res.ok) throw new Error("Failed to fetch services");
-      return api.services.list.responses[200].parse(await res.json());
+      return res.json();
     },
   });
 }

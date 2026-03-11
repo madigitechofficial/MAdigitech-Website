@@ -476,16 +476,35 @@ export default function Home() {
             </Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <motion.div
-              className="p-8 md:p-10 bg-secondary/20 border border-white/5 rounded-3xl"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-            >
-              <h3 className="text-2xl font-bold mb-4">TEST CARD</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                This should appear on Vercel
-              </p>
-            </motion.div>
+            {services?.map((service, i) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                whileHover={{
+                  y: -6,
+                  scale: 1.01,
+                  rotateZ: 1,
+                  transition: { duration: 0.2 },
+                }}
+                transition={{ delay: i * 0.1 }}
+                className="p-8 md:p-10 bg-secondary/20 border border-white/5 rounded-3xl hover:bg-accent transition-all group cursor-pointer flex flex-col transform-gpu"
+              >
+                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-8 md:mb-12 group-hover:bg-white/20 flex-shrink-0">
+                  <Plus
+                    size={24}
+                    className="group-hover:rotate-90 transition-transform"
+                  />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 group-hover:text-white break-words">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed group-hover:text-white/80 line-clamp-4">
+                  {service.description}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
