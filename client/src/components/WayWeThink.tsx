@@ -90,7 +90,7 @@ const css = `
 }
 
 .wtw-swiper-wrap {
-  height: 90vh;
+  height: 60vh;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -332,6 +332,11 @@ const css = `
 
 /* MOBILE FIX */
 @media (max-width: 768px) {
+
+.wtw-swiper-wrap {
+  display: none;
+}
+
   .wtw-slide {
     grid-template-columns: 1fr;
   }
@@ -346,6 +351,127 @@ const css = `
 
   .wtw-right {
     padding: 6vh 8vw;
+  }
+}
+
+/* MOBILE SLIDER */
+
+.wtw-mobile-slider {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  .wtw-mobile-slider {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;
+      padding-left:6vw;
+  padding-right:6vw;
+  padding-bottom:40px;
+     -webkit-overflow-scrolling:touch;
+  }
+
+/* hide scrollbar */
+.wtw-mobile-slider::-webkit-scrollbar{
+  display:none;
+}
+
+
+.wtw-mobile-card {
+    width:80vw;
+    max-width:80vw;
+    min-width:80vw;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 2rem;
+    background:
+radial-gradient(
+  circle at 5% 0%,
+  rgba(69,126,97,0.18),
+  transparent 60%
+),
+linear-gradient(
+  180deg,
+  rgba(255,255,255,0.02),
+  rgba(255,255,255,0.01)
+);
+    backdrop-filter:blur(6px);
+    display: flex;
+    flex-shrink:0;
+    flex-direction: column;
+    gap: 1.6rem;
+    word-wrap:break-word;
+    overflow-wrap:break-word;
+
+    position:relative;
+    overflow:hidden;
+  }
+
+.wtw-mobile-card::before{
+content:attr(data-num);
+position:absolute;
+right:14px;
+bottom:10px;
+
+font-family:'Syne',sans-serif;
+font-size:7.5rem;
+font-weight:800;
+
+color:rgba(69,126,97,0.06);
+
+pointer-events:none;
+user-select:none;
+}
+
+  .wtw-mobile-industry ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .wtw-mobile-industry li {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+  }
+
+  .wtw-mobile-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #457e61;
+    margin-bottom: 0.6rem;
+  }
+
+  .wtw-mobile-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .wtw-mobile-headline {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+  }  
+
+  .wtw-mobile-headline .accent {
+    color: #457e61;
+  }
+
+.wtw-mobile-headline span{
+  display:block;
+}
+
+  .wtw-mobile-body {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.6);
   }
 }
 `;
@@ -408,7 +534,7 @@ export default function WayWeThink() {
       const windowHeight = window.innerHeight;
 
       // Check if we are actually centered in the viewport (with some tolerance)
-      const isCentered = Math.abs(rect.top) < 140;
+      const isCentered = Math.abs(rect.top) < 150;
       const fullyVisible = rect.top >= -1 && rect.bottom <= windowHeight + 1;
 
       if (!fullyVisible || !isCentered) {
@@ -461,6 +587,45 @@ export default function WayWeThink() {
           We <span>Think.</span>
         </h2>
       </div>
+
+       {/* MOBILE SLIDER */}
+      <div className="wtw-mobile-slider">
+        {panels.map((p, i) => (
+          <div key={i} className="wtw-mobile-card" data-num={p.num}>
+            {/* INDUSTRY SIDE */}
+            <div className="wtw-mobile-industry">
+              <p className="wtw-mobile-label">Industry Standard</p>
+
+              <ul>
+                {p.industryBullets.map((b, j) => (
+                  <li key={j}>{b}</li>
+                ))}
+              </ul>
+            </div>
+
+            {/* DIVIDER */}
+            <div className="wtw-mobile-divider" />
+
+            {/* OUR PHILOSOPHY */}
+            <div className="wtw-mobile-thinking">
+              <p className="wtw-mobile-label">How We Think</p>
+
+              <h3 className="wtw-mobile-headline">
+                {p.headline.map((line, j) => (
+                  <span key={j} style={{ display: "block" }}>
+                    {line}
+                  </span>
+                ))}
+                <span className="accent">{p.accentWord}</span>
+              </h3>
+
+              <p className="wtw-mobile-body">{p.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* DESKTOP SCROLLER */}
 
       <div className="wtw-swiper-wrap">
         <div className="wtw-swiper">

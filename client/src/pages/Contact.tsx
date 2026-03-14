@@ -115,10 +115,10 @@ export default function Contact() {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="mb-8"
+              className="mb-8 mt-5"
             >
               <span className="font-mono text-accent text-xs tracking-[0.5em] uppercase px-3 py-1 bg-accent/10 border border-accent/20 rounded-full">
-                Initiate Contact
+                Get In Touch
               </span>
             </motion.div>
 
@@ -268,7 +268,7 @@ export default function Contact() {
                 {/* Row 3: Service */}
                 <div className="space-y-4">
                   <label className="text-[10px] font-mono uppercase tracking-[0.4em] text-white/60">
-                    What Service Are You Interested In?
+                    What Are You Interested In?
                   </label>
 
                   <div className="relative group">

@@ -179,7 +179,7 @@ export default function Home() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-screen lg:h-screen flex flex-col justify-center px-4 md:px-12 py-12 md:py-20 lg:py-0 overflow-hidden bg-[#050505]"
+        className="relative flex flex-col justify-center px-4 md:px-12 py-16 md:py-24 lg:py-0 overflow-hidden bg-[#050505]"
       >
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -206,12 +206,12 @@ export default function Home() {
 
         <div className="z-10 max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-8 lg:gap-12 items-center px-2 md:px-0">
           <div className="relative z-20 text-center lg:text-left pt-12 lg:pt-[7rem]">
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-[6.5rem] font-display font-black text-white mb-4 md:mb-4 lg:mb-4 tracking-tighter break-words overflow-wrap-anywhere">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[6.5rem] font-display font-black text-white mb-4 md:mb-4 lg:mb-4 tracking-tighter break-words overflow-wrap-anywhere">
               <AnimatedLetters text="MA" className="block text-accent leading-[0.8]" />
               <AnimatedLetters text="DIGITECH" className="block leading-[0.8]" />
             </h1>
 
-            <div className="flex flex-col md:flex-row gap-6 lg:gap-8 items-center lg:items-center mb-8 md:mb-10 lg:mb-12">
+            <div className="flex flex-col md:flex-row gap-6 lg:gap-8 items-center justify-center lg:items-center mb-8 md:mb-10 lg:mb-12">
               <motion.p
                 {...fadeInUp}
                 transition={{ delay: 0.5 }}
@@ -265,7 +265,7 @@ export default function Home() {
                   <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform w-4 sm:w-5 h-4 sm:h-5" />
                 </Button>
               </Link>
-              <Link href="/about">
+              <Link href="/about" className="block lg:hidden xl:block">
                 <Button
                   variant="outline"
                   size="lg"
