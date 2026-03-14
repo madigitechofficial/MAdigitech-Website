@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const panels = [
   {
@@ -473,15 +473,149 @@ user-select:none;
     line-height: 1.7;
     color: rgba(255,255,255,0.6);
   }
+
+
+.wtw-mobile-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 0 6vw 8vw 6vw;
+}
+
+.wtw-pagination-left {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.wtw-bullet-mobile {
+  width: 6px;
+  height: 6px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.25);
+  border: none;
+  padding: 0;
+
+  transition: all .35s ease;
+}
+
+.wtw-bullet-mobile.active {
+  width: 22px;
+  background: #457e61;
+}
+
+.wtw-arrows-right {
+  display: flex;
+  gap: 1rem;
+}
+
+.wtw-arrow {
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.08);
+
+  background: rgba(255,255,255,0.03);
+
+  color: #fff;
+  font-size: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all .25s ease;
+}
+
+.wtw-arrow:active {
+  transform: scale(.92);
+  border-color: #457e61;
+  color: #457e61;
+}
+
+.wtw-arrow:hover {
+  color: #457e61;
+}
+
+.wtw-mobile-pagination{
+display:flex;
+gap:8px;
+align-items:center;
+}
+
+.wtw-dot{
+width:6px;
+height:6px;
+border-radius:20px;
+border:none;
+background:rgba(255,255,255,0.25);
+transition:all .35s ease;
+}
+
+.wtw-dot.active{
+width:20px;
+background:#457e61;
+}
+
+.wtw-mobile-arrows{
+display:flex;
+gap:10px;
+}
+
+.wtw-mobile-arrows button{
+width:36px;
+height:36px;
+
+border-radius:50%;
+border:1px solid rgba(255,255,255,0.08);
+
+background:rgba(255,255,255,0.03);
+
+color:#fff;
+font-size:16px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+transition:all .25s ease;
+}
+
+.wtw-mobile-arrows button:active{
+transform:scale(.92);
+border-color:#457e61;
+color:#457e61;
+}
+
 }
 `;
 
 export default function WayWeThink() {
+  const [currentIndexMobile, setCurrentIndexMobile] = useState(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
   const bulletRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const currentIndex = useRef(0);
   const isAnimating = useRef(false);
+
+  function goToMobile(index: number) {
+    if (index < 0) index = 0;
+    if (index >= panels.length) index = panels.length - 1;
+    setCurrentIndexMobile(Math.max(0, Math.min(index, panels.length - 1)));
+
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    const cardWidth = slider.offsetWidth * 0.8; // matches 80vw
+    const gap = 16; // gap between cards (matches CSS)
+    slider.scrollTo({
+      left: index * (cardWidth + gap),
+      behavior: "smooth",
+    });
+  }
 
   function goTo(index: number) {
     if (isAnimating.current || index === currentIndex.current) return;
@@ -516,6 +650,31 @@ export default function WayWeThink() {
   }
 
   useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    let timeout: any;
+
+    function handleScroll() {
+      const el = sliderRef.current;
+      if (!el) return;
+
+      clearTimeout(timeout);
+
+      timeout = setTimeout(() => {
+        const cardWidth = el.offsetWidth * 0.8 + 24;
+        const index = Math.round(el.scrollLeft / cardWidth);
+
+        setCurrentIndexMobile(index);
+      }, 120);
+    }
+
+    slider.addEventListener("scroll", handleScroll);
+
+    return () => slider.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
     const styleEl = document.createElement("style");
     styleEl.innerHTML = css;
     document.head.appendChild(styleEl);
@@ -534,7 +693,7 @@ export default function WayWeThink() {
       const windowHeight = window.innerHeight;
 
       // Check if we are actually centered in the viewport (with some tolerance)
-      const isCentered = Math.abs(rect.top) < 150;
+      const isCentered = Math.abs(rect.top) < 140;
       const fullyVisible = rect.top >= -1 && rect.bottom <= windowHeight + 1;
 
       if (!fullyVisible || !isCentered) {
@@ -588,8 +747,8 @@ export default function WayWeThink() {
         </h2>
       </div>
 
-       {/* MOBILE SLIDER */}
-      <div className="wtw-mobile-slider">
+      {/* MOBILE SLIDER */}
+      <div className="wtw-mobile-slider" ref={sliderRef}>
         {panels.map((p, i) => (
           <div key={i} className="wtw-mobile-card" data-num={p.num}>
             {/* INDUSTRY SIDE */}
@@ -625,8 +784,36 @@ export default function WayWeThink() {
         ))}
       </div>
 
-      {/* DESKTOP SCROLLER */}
+      {/* Mobile Card Controls */}
+      <div className="wtw-mobile-controls">
+        <div className="wtw-pagination-left">
+          {panels.map((_, i) => (
+            <button
+              key={i}
+              className={`wtw-bullet-mobile ${i === currentIndexMobile ? "active" : ""}`}
+              onClick={() => goToMobile(i)}
+            />
+          ))}
+        </div>
 
+        <div className="wtw-arrows-right">
+          <button
+            className="wtw-arrow"
+            onClick={() => goToMobile(currentIndexMobile - 1)}
+          >
+            ‹
+          </button>
+          <button
+            className="wtw-arrow"
+            onClick={() => goToMobile(currentIndexMobile + 1)}
+          >
+            ›
+          </button>
+        </div>
+      </div>
+      {/* Mobile controls Finish */}
+
+      {/* DESKTOP SCROLLER */}
       <div className="wtw-swiper-wrap">
         <div className="wtw-swiper">
           <div
