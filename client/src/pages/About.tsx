@@ -129,9 +129,9 @@ export default function About() {
           <motion.p
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="font-mono text-accent text-sm tracking-[0.4em] uppercase mb-6 md:mb-8 block font-bold"
+            className="font-mono text-accent text-sm tracking-[0.4em] uppercase mb-6 mt-4 md:mb-8 block font-bold"
           >
-            Est. 2024 / Digital Excellence
+            Est. 2025 / Digital Excellence
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
