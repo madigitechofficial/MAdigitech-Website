@@ -124,7 +124,7 @@ export default function About() {
     <main className="bg-black pt-24 md:pt-32 pb-0 overflow-hidden">
       {/* 1. Mission Statement (Hero) */}
       <section className="px-6 md:px-12 mb-24 md:mb-32 lg:mb-48 relative">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] -z-10" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full -z-10" style={{ background: 'radial-gradient(circle, rgba(69,126,97,0.08) 0%, transparent 70%)' }} />
         <div className="max-w-7xl mx-auto">
           <motion.p
             initial={{ opacity: 0, x: -20 }}
@@ -231,7 +231,7 @@ export default function About() {
               className="relative aspect-[4/5] rounded-[2rem] md:rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden border border-white/5 shadow-2xl group"
             >
               <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2670&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=75&w=900&auto=format&fit=crop"
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-110 group-hover:scale-100"
                 alt="Our Journey"
               />
@@ -436,8 +436,8 @@ export default function About() {
       {/* 7. WANT TO WORK WITH US? */}
       <section className="px-6 md:px-12 py-24 md:py-32 bg-accent text-white relative overflow-hidden">
         {/* Subtle background texture/glow */}
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/10 rounded-full blur-[150px] -z-0" />
+        <div className="absolute inset-0 bg-[url('/textures/carbon.png')] opacity-10 mix-blend-overlay" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/10 rounded-full -z-0" style={{ background: 'radial-gradient(circle, rgba(69,126,97,0.08) 0%, transparent 70%)' }} />
 
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <motion.h2

@@ -10,14 +10,15 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 
-import logoImg from "@/assets/big logo bg removed.png";
+import logoImg from "@/assets/logo.png";
 
 export default function Footer() {
   return (
     <footer className="relative bg-black pt-24 pb-12 overflow-hidden border-t border-white/5">
       {/* Top Light Flare Overlay - matching the inspiration image */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-24 bg-accent/5 blur-[100px] rounded-full" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-24 rounded-full"
+     style={{ background: 'radial-gradient(circle, rgba(69,126,97,0.06) 0%, transparent 70%)' }} />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">

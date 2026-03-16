@@ -72,7 +72,7 @@ export default function Contact() {
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
-    defaultValues: { service: "" },
+    defaultValues: { service: undefined }
   });
 
   const onSubmit = (data: FormData) => {
@@ -102,9 +102,9 @@ export default function Contact() {
 
   return (
     <main className="min-h-screen bg-background pt-24 md:pt-32 pb-20 md:pb-24 px-4 md:px-12 overflow-hidden selection:bg-accent selection:text-white">
-      <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-[10%] -right-[10%] w-[50%] h-[50%] bg-accent/5 rounded-full blur-[120px]" />
-        <div className="absolute top-[20%] -left-[10%] w-[30%] h-[30%] bg-accent/5 rounded-full blur-[100px]" />
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute -top-[10%] -right-[10%] w-[50%] h-[50%] rounded-full" style={{ background: 'radial-gradient(circle, rgba(69,126,97,0.07) 0%, transparent 70%)' }} />
+        <div className="absolute top-[20%] -left-[10%] w-[30%] h-[30%] rounded-full" style={{ background: 'radial-gradient(circle, rgba(69,126,97,0.05) 0%, transparent 70%)' }} />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -175,7 +175,7 @@ export default function Contact() {
               </div>
             </div>
 
-             <div className="mt-12 md:mt-16 pt-10 border-t border-white/5 flex flex-wrap items-center gap-6 md:gap-8">
+            <div className="mt-12 md:mt-16 pt-10 border-t border-white/5 flex flex-wrap items-center gap-6 md:gap-8">
               <span className="font-mono text-[10px] uppercase tracking-widest text-white/40">
                 Connect With Us:
               </span>
@@ -204,8 +204,7 @@ export default function Contact() {
             className="w-full lg:w-[55%] pt-8 lg:pt-0"
           >
             <div className="bg-[#0c0c0c] p-6 md:p-8 lg:p-12 rounded-[1.5rem] md:rounded-[2.5rem] lg:rounded-[3.5rem] border border-white/5 shadow-2xl relative group overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-
+              <div className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" style={{ background: 'radial-gradient(circle, rgba(69,126,97,0.08) 0%, transparent 70%)' }} />
               <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="space-y-8 md:space-y-12 relative z-10"

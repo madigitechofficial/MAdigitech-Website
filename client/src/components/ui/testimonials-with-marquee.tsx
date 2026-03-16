@@ -51,7 +51,7 @@ export function TestimonialsSection({
         <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
           <div className="flex overflow-hidden p-2 [--gap:1rem] [gap:var(--gap)] flex-row [--duration:150s]">
             <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee flex-row">
-              {[...Array(8)].map((_, setIndex) =>
+              {[...Array(6)].map((_, setIndex) =>
                 testimonials.map((testimonial, i) => (
                   <TestimonialCard key={`${setIndex}-${i}`} {...testimonial} />
                 )),

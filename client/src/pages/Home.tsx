@@ -183,25 +183,9 @@ export default function Home() {
       >
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div
-            animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 90, 0],
-              opacity: [0.1, 0.2, 0.1],
-            }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute -top-1/4 -right-1/4 w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-accent/20 rounded-full blur-[60px] md:blur-[120px] transform-gpu"
-          />
-          <motion.div
-            animate={{
-              scale: [1.2, 1, 1.2],
-              rotate: [0, -90, 0],
-              opacity: [0.05, 0.15, 0.05],
-            }}
-            transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-            className="absolute -bottom-1/4 -left-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-accent/10 rounded-full blur-[50px] md:blur-[100px] transform-gpu"
-          />
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-[0.03] mix-blend-overlay" />
+          <div className="absolute -top-1/4 -right-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-accent/15 rounded-full blur-[80px] md:blur-[120px]" />
+          <div className="absolute -bottom-1/4 -left-1/4 w-[200px] md:w-[500px] h-[200px] md:h-[500px] bg-accent/8 rounded-full blur-[60px] md:blur-[100px]" />
+          <div className="absolute inset-0 bg-[url('/textures/carbon.png')] opacity-[0.03] mix-blend-overlay" />
         </div>
 
         <div className="z-10 max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-8 lg:gap-12 items-center px-2 md:px-0">
@@ -217,9 +201,8 @@ export default function Home() {
                 transition={{ delay: 0.5 }}
                 className="max-w-xs md:max-w-sm text-muted-foreground font-light text-sm md:text-lg lg:text-xl leading-tight border-l-0 lg:border-l-2 border-accent/30 lg:pl-6 text-center lg:text-left transform-gpu"
               >
-                We combine bold, standout design with high-performance systems
-                to craft digital experiences that make modern brands impossible
-                to ignore.
+                Stop losing leads. MAdigitech builds websites and AI systems that capture, qualify,
+                and convert traffic into paying clients.
               </motion.p>
 
               <motion.div
@@ -285,7 +268,7 @@ export default function Home() {
               className="relative aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-white/5 shadow-[0_0_100px_rgba(69,126,97,0.1)] group transform-gpu"
             >
               <img
-                src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=2670&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=75&w=900&auto=format&fit=crop"
                 alt="Digital Art"
                 className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000 scale-110 group-hover:scale-100"
               />
@@ -294,8 +277,6 @@ export default function Home() {
               <motion.div
                 animate={{
                   y: [0, -20, 0],
-                  rotateY: [0, 10, 0],
-                  scale: [0.9, 0.95, 0.9],
                 }}
                 transition={{
                   duration: 6,
@@ -441,7 +422,7 @@ export default function Home() {
             <div className="sticky top-40 hidden lg:block z-0 w-full">
               <div className="aspect-[4/6] rounded-3xl overflow-hidden border border-white/5 shadow-2xl relative group">
                 <img
-                  src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=2670&auto=format&fit=crop"
+                  src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=75&w=900&auto=format&fit=crop"
                   alt="Process"
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
                 />
@@ -455,9 +436,10 @@ export default function Home() {
       {/* Services Section */}
       <section className="py-24 md:py-40 px-6 md:px-12 relative overflow-hidden bg-black">
         {/* Tiles Background */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-20 blur-[1px]">
-          <Tiles rows={20} cols={10} tileSize="md" />
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-90">
+          <Tiles rows={100} cols={30} tileSize="md" />
         </div>
+
 
         {/* Content */}
         <div className="max-w-7xl mx-auto relative z-10">
@@ -534,34 +516,20 @@ export default function Home() {
                 </p>
               </motion.div>
             ))}
-          </div>  
+          </div>
         </div>
       </section>
 
       {/* Why Choose Us */}
       <section className="py-24 md:py-48 bg-black text-white px-6 md:px-12 relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.1, 0.2, 0.1],
-              x: [0, 100, 0],
-              y: [0, -50, 0],
-            }}
-            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-            className="absolute top-0 -right-[10%] w-[500px] h-[500px] bg-accent/30 rounded-full blur-[120px] transform-gpu"
-          />
-          <motion.div
-            animate={{
-              scale: [1.2, 1, 1.2],
-              opacity: [0.05, 0.15, 0.05],
-              x: [0, -100, 0],
-              y: [0, 50, 0],
-            }}
-            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-            className="absolute -bottom-[10%] -left-[10%] w-[600px] h-[600px] bg-accent/20 rounded-full blur-[150px] transform-gpu"
-          />
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-[0.03] mix-blend-overlay" />
+
+          <div className="absolute top-0 -right-[10%] w-[500px] h-[500px] rounded-full"
+            style={{ background: 'radial-gradient(circle, rgba(69,126,97,0.15) 0%, transparent 70%)' }} />
+          <div className="absolute -bottom-[10%] -left-[10%] w-[600px] h-[600px] rounded-full"
+            style={{ background: 'radial-gradient(circle, rgba(69,126,97,0.10) 0%, transparent 70%)' }} />
+
+          <div className="absolute inset-0 bg-[url('/textures/carbon.png')] opacity-[0.03] mix-blend-overlay" />
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
@@ -639,21 +607,9 @@ export default function Home() {
               transition={{ duration: 1.5, ease: [0.33, 1, 0.68, 1] }}
               className="relative aspect-square flex items-center justify-center transform-gpu"
             >
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 border border-white/5 rounded-full transform-gpu"
-              />
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-8 border border-accent/10 rounded-full border-dashed transform-gpu"
-              />
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-16 border border-white/10 rounded-full transform-gpu"
-              />
+              <div className="absolute inset-0 border border-white/5 rounded-full animate-spin [animation-duration:30s]" />
+              <div className="absolute inset-8 border border-accent/10 rounded-full border-dashed animate-spin [animation-duration:40s] [animation-direction:reverse]" />
+              <div className="absolute inset-16 border border-white/10 rounded-full animate-spin [animation-duration:25s]" />
 
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -710,7 +666,7 @@ export default function Home() {
 
       {/* Testimonials */}
       <TestimonialsSection
-        title="Trusted by developers worldwide"
+        title="Trusted by businesses worldwide"
         description="Join hundreds of businesses who are already building the future with our AI systems"
         testimonials={staticTestimonials}
       >

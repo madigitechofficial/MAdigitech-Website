@@ -17,7 +17,7 @@ const services = [
       "Automate your operations with smart systems that learn, adapt, and work at scale - so you can focus on what matters most.",
     icon: <Bot className="w-6 h-6 text-accent" />,
     image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=75&w=900&auto=format&fit=crop",
     subServices: [
       {
         title: "Custom AI Agents",
@@ -43,7 +43,7 @@ const services = [
       "Dominate the digital conversation with high-performance content and strategic growth systems.",
     icon: <Share2 className="w-6 h-6 text-accent" />,
     image:
-      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=75&w=900&auto=format&fit=crop",
     subServices: [
       {
         title: "Content Strategy & Production",
@@ -69,7 +69,7 @@ const services = [
       "Build digital weapons. High-speed, brutalist-inspired websites that convert traffic into revenue.",
     icon: <Code2 className="w-6 h-6 text-accent" />,
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=75&w=900&auto=format&fit=crop",
     subServices: [
       {
         title: "Custom Web Applications",
@@ -95,7 +95,7 @@ const services = [
       "Designs that grab attention and define your brand’s identity. We craft visuals that set modern leaders apart.",
     icon: <Palette className="w-6 h-6 text-accent" />,
     image:
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=2000&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1558655146-d09347e92766?q=75&w=900&auto=format&fit=crop",
     subServices: [
       {
         title: "Brand Identity Systems",
@@ -122,14 +122,8 @@ export default function Services() {
       <div className="pt-32 pb-24 px-6 md:px-12 relative overflow-hidden">
         {/* Services Hero Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div
-            animate={{
-              scale: [1, 1.3, 1],
-              opacity: [0.05, 0.1, 0.05],
-            }}
-            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-            className="absolute top-0 -left-[10%] w-[600px] h-[600px] bg-accent/20 rounded-full blur-[120px]"
-          />
+          <div className="absolute top-0 -left-[10%] w-[600px] h-[600px] rounded-full"
+            style={{ background: 'radial-gradient(circle, rgba(69,126,97,0.08) 0%, transparent 70%)' }} />
           <div className="absolute top-40 right-10 w-px h-[60vh] bg-gradient-to-b from-accent/50 to-transparent" />
         </div>
 
@@ -183,7 +177,7 @@ export default function Services() {
           <div className="space-y-48">
             {services.map((service, index) => (
               <motion.div
-               key={service.id}
+                key={service.id}
                 initial={{
                   opacity: 0,
                   y: 50,
@@ -269,7 +263,7 @@ export default function Services() {
                   </motion.div>
 
                   {/* Geometric Accents - Hidden on mobile */}
-                  <div className={`hidden lg:block absolute -top-8 ${index % 2 === 1 ? "-left-8" : "-right-8"} w-32 h-32 border-accent/20 border-2 rounded-full opacity-50 blur-sm pointer-events-none`} />
+                  <div className={`hidden lg:block absolute -top-8 ${index % 2 === 1 ? "-left-8" : "-right-8"} w-32 h-32 border-accent/20 border-2 rounded-full opacity-30 pointer-events-none`} />
                   <div className={`hidden lg:block absolute -bottom-12 ${index % 2 === 1 ? "-right-8" : "-left-8"} w-48 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent pointer-events-none`} />
                 </div>
               </motion.div>

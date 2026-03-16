@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-import logoImg from "@/assets/big logo bg removed.png"
+import logoImg from "@/assets/logo.png"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);

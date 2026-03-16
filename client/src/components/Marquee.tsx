@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import "./marquee.css";
 
 interface MarqueeProps {
   items: string[];
@@ -10,15 +10,11 @@ interface MarqueeProps {
 export function Marquee({ items, direction = "left", speed = 20, className = "" }: MarqueeProps) {
   return (
     <div className={`relative flex overflow-hidden py-4 bg-secondary/30 border-y border-white/5 ${className}`}>
-      <motion.div
-        className="flex whitespace-nowrap gap-16"
-        animate={{
-          x: direction === "left" ? ["0%", "-50%"] : ["-50%", "0%"],
-        }}
-        transition={{
-          repeat: Infinity,
-          ease: "linear",
-          duration: speed,
+      <div
+        className="flex whitespace-nowrap gap-16 marquee-track"
+        style={{
+          animationDuration: `${speed}s`,
+          animationDirection: direction === "left" ? "normal" : "reverse",
         }}
       >
         {[...items, ...items, ...items, ...items].map((item, i) => (
@@ -29,7 +25,7 @@ export function Marquee({ items, direction = "left", speed = 20, className = "" 
             {item} <span className="w-2 h-2 bg-accent rounded-full inline-block" />
           </span>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 }
