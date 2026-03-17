@@ -92,7 +92,7 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        marquee: "marquee var(--duration) linear infinite",
+        marquee: "marquee var(--marquee-duration, 20s) linear infinite",
       },
       keyframes: {
         "accordion-down": {
@@ -104,8 +104,8 @@ export default {
           to: { height: "0" },
         },
         marquee: {
-          from: { transform: "translateX(0)" },
-          to: { transform: "translateX(calc(-100% - var(--gap)))" },
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
       maxWidth: {

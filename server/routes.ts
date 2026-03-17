@@ -131,11 +131,6 @@ export async function registerRoutes(
     res.json(project);
   });
 
-  app.get(api.testimonials.list.path, async (req, res) => {
-    const testimonials = await storage.getTestimonials();
-    res.json(testimonials);
-  });
-
   app.post(api.contact.submit.path, async (req, res) => {
     try {
       const input = api.contact.submit.input.parse(req.body);

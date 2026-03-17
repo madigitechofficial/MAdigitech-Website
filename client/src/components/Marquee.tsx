@@ -1,5 +1,3 @@
-import "./marquee.css";
-
 interface MarqueeProps {
   items: string[];
   direction?: "left" | "right";
@@ -11,16 +9,20 @@ export function Marquee({ items, direction = "left", speed = 20, className = "" 
   return (
     <div className={`relative flex overflow-hidden py-4 bg-secondary/30 border-y border-white/5 ${className}`}>
       <div
-        className="flex whitespace-nowrap gap-16 marquee-track"
+        className="flex animate-marquee"
         style={{
-          animationDuration: `${speed}s`,
+          "--marquee-duration": `${speed}s`,
+          gap: "1rem",
+          minWidth: "max-content",
+          willChange: "transform",
           animationDirection: direction === "left" ? "normal" : "reverse",
-        }}
+        } as React.CSSProperties}
       >
-        {[...items, ...items, ...items, ...items].map((item, i) => (
+        {[...items, ...items].map((item, i) => (
           <span
             key={i}
-            className="text-lg md:text-xl font-mono uppercase tracking-widest text-muted-foreground flex items-center gap-8"
+            className="text-lg md:text-xl font-mono uppercase tracking-widest text-muted-foreground inline-flex items-center shrink-0"
+            style={{ gap: "2rem", paddingInline: "1rem" }}
           >
             {item} <span className="w-2 h-2 bg-accent rounded-full inline-block" />
           </span>

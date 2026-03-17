@@ -408,12 +408,6 @@ export default function About() {
         title="Proof of Impact"
         description="What our clients say"
         testimonials={testimonialsData}
-        fadeOverlay={
-          <>
-            <div className="pointer-events-none absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-black to-transparent z-10" />
-            <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-black to-transparent z-10" />
-          </>
-        }
       />
 
       {/* STAT BAR */}

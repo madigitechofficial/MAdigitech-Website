@@ -18,7 +18,6 @@ import {
 } from "lucide-react";
 import { Link } from "wouter";
 import { Marquee } from "@/components/Marquee";
-import { useServices, useTestimonials } from "@/hooks/use-data";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -171,7 +170,7 @@ export default function Home() {
     { id: 3, title: "Web Development", description: "Build digital weapons. High-speed, brutalist-inspired websites that convert traffic into revenue." },
     { id: 4, title: "Graphic Design", description: "Visual identities that command attention. We define the aesthetic of modern market leaders." },
   ];
-  const { data: testimonials } = useTestimonials();
+
   const heroRef = useRef(null);
 
   return (
@@ -463,37 +462,7 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services?.map((service, i) => (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                whileHover={{
-                  y: -6,
-                  scale: 1.01,
-                  rotateZ: 1,
-                  transition: { duration: 0.2 },
-                }}
-                transition={{ delay: i * 0.1 }}
-                className="p-8 md:p-10 bg-secondary/20 border border-white/5 rounded-3xl hover:bg-accent transition-all group cursor-pointer flex flex-col transform-gpu"
-              >
-                <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-8 md:mb-12 group-hover:bg-white/20 flex-shrink-0">
-                  <Plus
-                    size={24}
-                    className="group-hover:rotate-90 transition-transform"
-                  />
-                </div>
-                <h3 className="text-2xl font-bold mb-4 group-hover:text-white break-words">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed group-hover:text-white/80 line-clamp-4">
-                  {service.description}
-                </p>
-              </motion.div>
-            ))}
-          </div> */}
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, i) => (
               <motion.div
@@ -669,10 +638,7 @@ export default function Home() {
         title="Trusted by businesses worldwide"
         description="Join hundreds of businesses who are already building the future with our AI systems"
         testimonials={staticTestimonials}
-      >
-        <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-1/4 bg-gradient-to-r from-bg-secondary/20 to-transparent sm:block z-10" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/4 bg-gradient-to-l from-bg-secondary/20 to-transparent sm:block z-10" />
-      </TestimonialsSection>
+      />
 
       {/* FAQs */}
       <section className="py-24 md:py-40 px-6 md:px-12">

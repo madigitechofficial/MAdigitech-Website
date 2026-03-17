@@ -41,15 +41,7 @@ export const api = {
       },
     }
   },
-  testimonials: {
-    list: {
-      method: 'GET' as const,
-      path: '/api/testimonials',
-      responses: {
-        200: z.array(z.custom<typeof testimonials.$inferSelect>()),
-      },
-    },
-  },
+  
   contact: {
     submit: {
       method: 'POST' as const,
