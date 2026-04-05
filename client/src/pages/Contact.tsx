@@ -170,7 +170,7 @@ export default function Contact() {
                   </h3>
                 </div>
                 <p className="text-muted-foreground font-light pl-11 text-sm">
-                  hello@madigitech.co
+                  info@madigitech.co
                 </p>
               </div>
             </div>

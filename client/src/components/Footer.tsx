@@ -177,10 +177,10 @@ export default function Footer() {
                     Email Us
                   </p>
                   <a
-                    href="mailto:hello@madigitech.com"
+                    href="mailto:info@madigitech.com"
                     className="text-sm text-white hover:text-accent transition-colors font-medium"
                   >
-                    hello@madigitech.co
+                    info@madigitech.co
                   </a>
                 </div>
               </li>
