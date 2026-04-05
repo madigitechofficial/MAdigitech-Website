@@ -1,6 +1,3 @@
-// api/db.ts
-import { Client } from "@neondatabase/serverless";
+import { neon } from "@neondatabase/serverless";
 
-export const client = new Client({
-  connectionString: process.env.NEON_DB_URL, // Make sure this exists in Vercel
-});
+export const sql = neon(process.env.DATABASE_URL!);

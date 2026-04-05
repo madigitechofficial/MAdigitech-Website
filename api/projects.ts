@@ -3,10 +3,10 @@ import { sql } from "./db";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
-    const services = await sql`SELECT * FROM services ORDER BY display_order`;
-    res.status(200).json(services);
+    const projects = await sql`SELECT * FROM projects`;
+    res.status(200).json(projects);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Failed to fetch services" });
+    res.status(500).json({ error: "Failed to fetch projects" });
   }
 }

@@ -1,11 +1,9 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.cjs"
-    }
+  "rewrites": [
+    { "source": "/api/services", "destination": "/api/services" },
+    { "source": "/api/projects", "destination": "/api/projects" },
+    { "source": "/api/contact", "destination": "/api/contact" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
