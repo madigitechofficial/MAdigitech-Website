@@ -1,4 +1,4 @@
-import { db } from "./db.js";
+import { db } from "./db";
 import {
   services, projects, messages,
   type Service, type Project, type Testimonial, type Message, type InsertMessage
