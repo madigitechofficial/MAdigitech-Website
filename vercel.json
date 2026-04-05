@@ -2,15 +2,7 @@
   "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "functions": {
-    "dist/index.cjs": {
-      "runtime": "nodejs20.x"
-    }
-  },
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "dist/index.cjs"
-    }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.cjs" }
   ]
 }
